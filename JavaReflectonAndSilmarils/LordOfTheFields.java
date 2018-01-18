@@ -12,5 +12,13 @@ public class LordOfTheFields {
         f.set(fakeSilmaril, "Melkor"); 
         System.out.println("But now they belong to " + fakeSilmaril.getOwner() + "!");
         
+        System.out.println("They were " + fakeSilmaril.getDescription() + ".");
+        
+        f = fakeSilmaril.getClass().getDeclaredField("description");
+        f.setAccessible(true);
+        String MelkorWords = "They are on the dark side now!";
+        System.out.println("Melkor said " + MelkorWords + "");
+        f.set(fakeSilmaril, MelkorWords);
+        System.out.println("But they are still " + fakeSilmaril.getDescription() + ". Because you can't change final fields.");
 	}
 }
